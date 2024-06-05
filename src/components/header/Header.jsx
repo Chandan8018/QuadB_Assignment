@@ -6,8 +6,10 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const path = useLocation().pathname;
   return (
     <Navbar fluid rounded>
       <NavbarBrand href='https://flowbite-react.com'>
@@ -25,13 +27,21 @@ function Header() {
         <NavbarToggle />
       </div>
       <NavbarCollapse>
-        <NavbarLink href='#' active>
-          Home
+        <NavbarLink active={path === "/"} as={"div"}>
+          <Link to='/'>Home</Link>
         </NavbarLink>
-        <NavbarLink href='#'>About</NavbarLink>
-        <NavbarLink href='#'>Services</NavbarLink>
-        <NavbarLink href='#'>Pricing</NavbarLink>
-        <NavbarLink href='#'>Contact</NavbarLink>
+
+        <NavbarLink active={path === "/createtodo"} as={"div"}>
+          <Link to='/createtodo'>Create Todo</Link>
+        </NavbarLink>
+
+        <NavbarLink active={path === "/viewtodo"} as={"div"}>
+          <Link to='/viewtodo'>View Todo</Link>
+        </NavbarLink>
+
+        <NavbarLink active={path === "/edit-deltodo"} as={"div"}>
+          <Link to='/edit-deltodo'>Edit & Del Todo</Link>
+        </NavbarLink>
       </NavbarCollapse>
     </Navbar>
   );
