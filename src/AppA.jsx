@@ -6,19 +6,13 @@ import { HoverEffect } from "./components/ui/card-hover-effect";
 function AppA() {
   const words = [
     {
-      text: "Build",
+      text: "Welcome",
     },
     {
-      text: "awesome",
+      text: "to",
     },
     {
-      text: "apps",
-    },
-    {
-      text: "with",
-    },
-    {
-      text: "Aceternity.",
+      text: "DailyTracker.",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];

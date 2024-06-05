@@ -24,7 +24,7 @@ function Header() {
           alt='Todo App Logo'
         />
         <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
-          DailyDone
+          DailyTracker
         </span>
       </NavbarBrand>
       <div className='flex gap-5 md:order-2'>

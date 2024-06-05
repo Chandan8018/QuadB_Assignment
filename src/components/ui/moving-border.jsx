@@ -22,7 +22,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-12 min-w-20 p-[1.5px] overflow-hidden ",
+        "bg-transparent relative text-xl  h-12 w-full p-[1.5px] overflow-hidden ",
         containerClassName
       )}
       style={{
@@ -61,7 +61,7 @@ export function Button({
 
 export const MovingBorder = ({
   children,
-  duration = 2000,
+  duration = 3000,
   rx,
   ry,
   ...otherProps
