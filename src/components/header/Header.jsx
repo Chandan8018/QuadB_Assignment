@@ -7,9 +7,14 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../redux/theme/themeSlice";
 
 function Header() {
   const path = useLocation().pathname;
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state) => state.theme);
   return (
     <Navbar fluid rounded>
       <NavbarBrand href='https://flowbite-react.com'>
@@ -22,7 +27,19 @@ function Header() {
           DailyDone
         </span>
       </NavbarBrand>
-      <div className='flex md:order-2'>
+      <div className='flex gap-5 md:order-2'>
+        <Button
+          className='w-10 h-10 md:mr-10'
+          color='gray'
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? (
+            <FaSun className='w-5 h-5' />
+          ) : (
+            <FaMoon className='w-5 h-5' />
+          )}
+        </Button>
         <Button>Sign In</Button>
         <NavbarToggle />
       </div>
