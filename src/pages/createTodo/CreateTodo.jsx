@@ -5,12 +5,20 @@ import { cn } from "../../utils/cn";
 import { words } from "../../data/data";
 import { TypewriterEffectSmooth } from "../../components/ui/typewriter-effect";
 import { Button } from "../../components/ui/moving-border";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { createTodo } from "../../redux/todo/todoSlice";
 
 function CreateTodo() {
   const [formData, setFormData] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(createTodo(formData));
+    navigate("/viewTodo");
     console.log(formData);
+    setFormData({});
   };
   return (
     <div className='max-w-3xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-[#1F2937] my-10'>
