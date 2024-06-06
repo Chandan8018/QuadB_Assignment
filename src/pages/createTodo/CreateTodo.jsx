@@ -8,6 +8,7 @@ import { Button } from "../../components/ui/moving-border";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createTodo } from "../../redux/todo/todoSlice";
+import { Spotlight } from "../../components/ui/Spotlight";
 
 function CreateTodo() {
   const [formData, setFormData] = useState({});
@@ -22,6 +23,10 @@ function CreateTodo() {
   };
   return (
     <div className='max-w-3xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-[#1F2937] my-10'>
+      <Spotlight
+        className='-top-40 left-0 md:left-60 md:-top-20 z-10'
+        fill='white'
+      />
       <div className='flex justify-center'>
         <TypewriterEffectSmooth words={words} />
       </div>

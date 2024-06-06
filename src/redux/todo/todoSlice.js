@@ -20,6 +20,7 @@ const todoSlice = createSlice({
         return {
           payload: {
             id,
+            todoStatus: "Todo",
             ...todoData,
           },
         };
@@ -32,10 +33,13 @@ const todoSlice = createSlice({
       }
     },
     updateTodo: (state, action) => {
-      const { id, title } = action.payload;
+      const { id, title, description, date, todoStatus } = action.payload;
       const todo = state.todos.find((todo) => todo.id === id);
       if (todo) {
         todo.title = title;
+        todo.description = description;
+        todo.date = date;
+        todo.todoStatus = todoStatus;
       }
     },
     deleteTodo: (state, action) => {
