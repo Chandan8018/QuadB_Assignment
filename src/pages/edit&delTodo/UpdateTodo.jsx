@@ -14,6 +14,7 @@ function UpdateTodo() {
   const todos = useSelector(selectTodos);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
+  const { theme } = useSelector((state) => state.theme);
 
   useEffect(() => {
     // Find the todo with the given id from the Redux store
@@ -32,7 +33,7 @@ function UpdateTodo() {
     <div className='max-w-3xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-[#1F2937] my-10'>
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20 z-10'
-        fill='white'
+        fill={theme === "dark" ? "white" : "#13C6F7"}
       />
       <div className='flex justify-center'>
         <TypewriterEffectSmooth words={updateWord} />
@@ -82,7 +83,7 @@ function UpdateTodo() {
         </div>
         <Button
           borderRadius='1.75rem'
-          className='bg-gray-400 dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800'
+          className='bg-gray-400 dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 text-md font-semibold'
           type='submit'
         >
           Update

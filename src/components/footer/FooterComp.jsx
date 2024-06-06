@@ -1,22 +1,12 @@
 import {
   Footer,
-  FooterBrand,
   FooterCopyright,
   FooterDivider,
-  FooterIcon,
   FooterLink,
   FooterLinkGroup,
   FooterTitle,
   TextInput,
 } from "flowbite-react";
-import {
-  BsDribbble,
-  BsFacebook,
-  BsGithub,
-  BsInstagram,
-  BsTwitter,
-  BsFire,
-} from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { Button } from "../ui/moving-border";

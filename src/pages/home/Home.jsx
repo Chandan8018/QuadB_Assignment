@@ -4,13 +4,15 @@ import { Button } from "../../components/ui/moving-border";
 import { TypewriterEffectSmooth } from "../../components/ui/typewriter-effect";
 import { homeWord } from "../../data/data";
 import { Spotlight } from "../../components/ui/Spotlight";
+import { useSelector } from "react-redux";
 
 function Home() {
+  const { theme } = useSelector((state) => state.theme);
   return (
     <div className='max-w-3xl w-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-[#1F2937] my-10 rounded-lg'>
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20 z-10'
-        fill='white'
+        fill={theme === "dark" ? "white" : "#13C6F7"}
       />
       <div className='flex justify-center mb-8'>
         <TypewriterEffectSmooth words={homeWord} />

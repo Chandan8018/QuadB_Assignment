@@ -7,7 +7,8 @@ import { TypewriterEffectSmooth } from "../../components/ui/typewriter-effect";
 import { viewWord } from "../../data/data";
 
 function ViewTodo() {
-  const todos = useSelector(selectTodos) || []; // Ensure todos is an array
+  const todos = useSelector(selectTodos) || [];
+  const { theme } = useSelector((state) => state.theme);
 
   const [projects, setProjects] = useState([]);
 
@@ -30,7 +31,7 @@ function ViewTodo() {
       </div>
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20 z-10'
-        fill='white'
+        fill={theme === "dark" ? "white" : "#13C6F7"}
       />
       <HoverEffect items={projects} />
     </div>

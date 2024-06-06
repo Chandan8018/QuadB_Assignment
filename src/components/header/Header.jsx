@@ -1,5 +1,4 @@
 import {
-  Button,
   Navbar,
   NavbarBrand,
   NavbarCollapse,
@@ -10,6 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/theme/themeSlice";
+import { Button } from "../ui/moving-border";
 
 function Header() {
   const path = useLocation().pathname;
@@ -29,9 +29,8 @@ function Header() {
       </NavbarBrand>
       <div className='flex gap-5 md:order-2'>
         <Button
-          className='w-10 h-10 md:mr-10'
-          color='gray'
-          pill
+          borderRadius='1.75rem'
+          className='bg-tansparent text-black dark:text-white border-neutral-200 dark:border-slate-800 w-full md:mr-10'
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === "light" ? (
@@ -40,7 +39,12 @@ function Header() {
             <FaMoon className='w-5 h-5' />
           )}
         </Button>
-        <Button>Sign In</Button>
+        <Button
+          borderRadius='1.75rem'
+          className='bg-transparent border-slate-800 mr-4 text-sm font-semibold text-black dark:text-white'
+        >
+          Sign In
+        </Button>
         <NavbarToggle />
       </div>
       <NavbarCollapse>

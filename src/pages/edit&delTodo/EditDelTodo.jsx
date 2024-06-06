@@ -17,6 +17,7 @@ function EditDelTodo() {
   const [showModal, setShowModal] = useState(false);
   const [todoId, setTodoId] = useState(null);
   const navigate = useNavigate();
+  const { theme } = useSelector((state) => state.theme);
 
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));
@@ -26,7 +27,7 @@ function EditDelTodo() {
     <div className='table-auto overflow-x-scroll max-w-4xl md:mx-auto p-3 min-h-screen scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20 z-10'
-        fill='white'
+        fill={theme === "dark" ? "white" : "#13C6F7"}
       />
       <div className='flex justify-center'>
         <TypewriterEffectSmooth words={editWord} />
